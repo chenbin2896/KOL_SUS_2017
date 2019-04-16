@@ -1,0 +1,50 @@
+<!--pages/vip/vip.wxml-->
+<view class='content'>
+  <view class='head'>
+    <view class='head_title'>
+      会员中心
+    </view>
+    <view class='info'>
+      <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> </button>
+    <block wx:else>
+      <view class='head_img'>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      </view>   
+      
+      <view class='head_info'>
+        <text class="userinfo-nickname">hi~{{userInfo.nickName}},开通会员，即刻体验</text>
+        <text>
+        海外KOL会员专属权益
+        </text>
+      </view>
+      
+      
+      
+    </block>
+    </view>
+    </view>
+  </view>
+
+  <view class='middle'>
+    <view class='middle_title'>
+      <view class='middle_title_big'> 
+        海外KOL大全VIP版
+      </view>
+      <view class='middle_title_small'>
+        5元/月
+      </view>
+    </view>
+
+    <view class='middle_content'>
+      解锁全部海外KOL
+    </view>
+
+    
+  </view>
+  <view class='bottom'>
+      <navigator url='' class='pay_btn'>
+        立即支付
+      </navigator>
+    </view>
+</view>

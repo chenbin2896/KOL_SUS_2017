@@ -1,0 +1,79 @@
+<!--pages/index/index.wxml-->
+<view class='content border'>
+  <!--头部-->
+  <view class='head_info border'>
+    <!--icon-->
+    <view class='icon border'>
+      <image src='{{iconUrl}}' style='width:100%;height:100%;'></image>
+    </view>
+
+    <view class='detail_info border'>
+      <text decode='true'>简介:&nbsp;{{introduce}}</text>
+    </view>
+
+    <view class='item_area border'>
+      <view class='item border'>
+        <view>平台</view>
+        <view>{{platform}}</view>
+      </view>
+      <view style='float:left;width:0px;height:16px;margin-top:12px;border:0.3px grey solid;'></view>
+      <view class='item border'>
+        <view>国家</view>
+        <view>{{country}}</view>
+      </view>
+      <view style='float:left;width:0px;height:16px;margin-top:12px;border:0.3px grey solid;'></view>
+      <view class='item border'>
+        <view>名称</view>
+        <view>{{name}}</view>
+      </view>
+      <view style='float:left;width:0px;height:16px;margin-top:12px;border:0.3px grey solid;'></view>
+      <view class='item border'>
+        <view>领域</view>
+        <view>{{domain}}</view>
+      </view>
+      <view style='float:left;width:0px;height:16px;margin-top:12px;border:0.3px grey solid;'></view>
+      <view class='item border'>
+        <view>粉丝量</view>
+        <view>{{fans}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!--合作形式-->
+  <view class='cooperation_info border'>
+    <view class='title'>合作形式</view>
+    <swiper autoplay='true' duration='400' circular='true' style='height:100px;'>
+      <block wx:for="{{imageUrls}}" wx:key="index">
+        <swiper-item>
+          <image src='{{item.url}}' style='width:450px;height:100px;'></image>
+        </swiper-item>
+      </block> 
+    </swiper>
+  </view>
+
+  <!--排行-->
+  <view class='list_view border'>
+    <view class='list_title border'>
+      <view style='float:left'>热门账号推荐</view>
+      <view style='float:right'>粉丝/W</view>
+    </view>
+    <view class='border'>
+      <block wx:for="{{targetArray}}" wx:key="id">
+         <navigator url='index?iconUrl={{item.iconUrl}}&introduce={{item.introduce}}&platform={{item.platform}}&country={{item.country}}&name={{item.name}}&domain={{item.domain}}&fans={{item.fans}}&type={{item.type}}' style='height:35px;'>
+         <view class='list border'>
+          <view style='float:left;padding-right:20px;line-height:30px;'>{{item.id}}</view>
+          <view style='float:left'>
+            <image src='{{item.iconUrl}}' style='width:30px;height:30px;border-radius:50%;overflow:hidden;'></image>
+          </view>
+         <view style='float:left;padding-left:10px;line-height:30px;'>{{item.name}}</view>
+         <view style='float:right;line-height:30px;'>{{item.fans}}</view>
+         </view>
+        </navigator> 
+      </block>
+    
+    </view>
+  
+  </view>
+
+
+</view>

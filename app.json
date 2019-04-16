@@ -1,0 +1,16 @@
+{
+  "pages": [
+    
+    "pages/main/main",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/logs/logs",
+    "pages/vip/vip"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3490d3",
+    "navigationBarTitleText": "海外KOL大全",
+    "navigationBarTextStyle": "#fff"
+  }
+}

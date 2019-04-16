@@ -1,0 +1,106 @@
+<!--pages/main/main.wxml-->
+<view class='content '>
+  <view class='head '>
+    <view class='title '>
+      <text>查看KOL</text>
+    </view>
+    <view class='search'>
+      <view class='search_left'  catchtap='selectTap'>
+        <text class='select_text'>{{selectData[index]}}</text>
+     </view>
+      <view  class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+        <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+    </view>
+      <view class='search_input'>
+        <input type='text' name='search_value' bindinput ="inputValue"></input>
+      </view>
+      <view class='search_btn' wx:if="{{inputIsNotNone}}" >
+        <navigator  url='../search/search?inputValue={{inputValue}}&index={{index}}' style='width:100%;height:100%;'>
+          <image src='../../images/search.png' style='width:100%;height:100%'></image>
+        </navigator>
+      </view>
+      <view class='search_btn' wx:else >
+        
+          <image src='../../images/search.png' class='image'></image>
+       
+      </view>
+    </view>
+
+    <view class='info '>
+      蓝船出海,(物)互联网出海服务平台,主要覆盖移动出海、互联网出海、跨境电商、游戏出海、金融科技出海、区块链出海、跨境金融、文化娱乐内容出海、跨境金融、海外房产...
+    </view>
+  </view>
+
+
+  <view class='nav_title '>
+    <text>热门账号TOP50</text>
+  </view>
+
+  <scroll-view class='nav ' scroll-x="true">
+    <view class="{{isClick01?'focus':'nav_item'}}" bindtap='click01'>
+    Facebook
+    </view>
+    <view class="{{isClick02?'focus':'nav_item'}}" bindtap='click02'>
+    Instagram
+    </view>
+    <view class="{{isClick03?'focus':'nav_item'}}"bindtap='click03'>
+    YouTube
+    </view>
+    <view class="{{isClick04?'focus':'nav_item'}}"bindtap='click04'>
+    Twitter
+    </view>
+    <view class="{{isClick05?'focus':'nav_item'}}"bindtap='click05'>
+    微博
+    </view>
+    <view class="{{isClick06?'focus':'nav_item'}}"bindtap='click06'>
+    微信
+    </view>
+    <view class="{{isClick07?'focus':'nav_item'}}"bindtap='click07'>
+    抖音
+    </view>
+  </scroll-view>
+
+  <view class='date '>
+  2018年5月01日-2018年5月31日
+  </view>
+
+  <view class='list_nav'>
+    <view class='list_nav_item' style='text-align:left'>
+      序号
+    </view>
+    <view class='list_nav_item' style='text-align:center'>
+      自媒体
+    </view>
+    <view class='list_nav_item' style='text-align:right'>
+      粉丝/w
+    </view>
+  </view>
+  <view class='list_view '>
+    <block wx:for="{{targetArray}}" wx:key="index1">
+      <view class='info_list'>
+        <navigator url='../index/index?iconUrl={{item.iconUrl}}&introduce={{item.introduce}}&platform={{item.platform}}&country={{item.country}}&name={{item.name}}&domain={{item.domain}}&fans={{item.fans}}&type={{item.type}}'>
+          <view class='list_left'>
+        {{item.id}}
+      </view>
+      <view class='list_image'>
+        <image src='{{item.iconUrl}}' style='width:100%;height:100%;border-radius:50%'></image>
+      </view>
+      <view class='list_middle'>
+        {{item.name}}
+      </view>
+      <view class='list_right'>
+        {{item.fans}}
+      </view>
+        </navigator>
+      </view>
+    </block>
+    
+  </view>
+
+  <view class='bottom'>
+    <navigator url='../vip/vip'>
+      开通VIP查看全部KOL
+    </navigator>
+  </view>
+</view>
+
